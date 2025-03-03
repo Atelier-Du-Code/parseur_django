@@ -21,6 +21,7 @@ cd src
 🏗️ Étape 4 : Préparer et lancer le conteneur Docker
 docker compose build
 docker compose up
+
 📌 Remarque : Le service container_parseur_app peut prendre un peu de temps à démarrer.
 
 🎉 Félicitations ! Votre projet est prêt à être utilisé.
@@ -28,6 +29,7 @@ docker compose up
 🧪 Étape 5 : Tester le projet
 Rendez-vous sur l'URL suivante :
 👉 http://localhost:8000/display/audits/
+
 Téléchargez les deux fichiers situés dans le dossier exemple_docs_a_telecharger.
 Uploadez ces fichiers pour tester le parseur de PDF.
 
