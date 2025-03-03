@@ -1,0 +1,45 @@
+
+services:
+  db:
+    image: postgres:latest
+    container_name: container_parseur_bdd
+    restart: always
+    environment:
+      POSTGRES_DB: bdd_parseur
+      POSTGRES_USER: utilisateur
+      POSTGRES_PASSWORD: mdp_utilisateur
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init_database/init_user.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U utilisateur -d bdd_parseur"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    container_name: container_parseur_app
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_ENV=docker
+      - DEBUG=1
+      - DJANGO_DB_HOST=db
+      - DJANGO_DB_NAME=bdd_parseur
+      - DJANGO_DB_USER=utilisateur
+      - DJANGO_DB_PASSWORD=mdp_utilisateur
+    volumes:
+      - .:/app
+    command: >
+      sh -c "python manage.py migrate &&
+            #  python manage.py loaddata database/fixtures.json &&
+             python manage.py runserver 0.0.0.0:8000"
+
+volumes:
+  postgres_data:

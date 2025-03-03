@@ -1,0 +1,22 @@
+# 🔒 Fichiers sensibles
+.env
+*.pem
+*.key
+
+# 🐍 Environnement virtuel (venv)
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 📂 Base de données locale
+db.sqlite3
+*.sqlite3
+
+# 📦 Dépendances et fichiers générés
+node_modules/
+*.log
+*.DS_Store  # MacOS
+*.idea/  # PyCharm
+.vscode/  # VS Code

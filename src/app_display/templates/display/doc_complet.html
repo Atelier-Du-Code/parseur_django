@@ -1,0 +1,24 @@
+{% extends "display/base.html" %}
+
+{% block title %}{{ evaluation.nom_produit }}{% endblock %}
+
+{% block content %}
+    <h1>{{ evaluation.nom_produit }}</h1>
+    <p><strong>Éditeur :</strong> {{ evaluation.editeur }}</p>
+    <p><strong>Version :</strong> {{ evaluation.version_produit }}</p>
+   
+
+    <h2>Niveaux EAL</h2>
+    <ul>
+        {% for niveau in niveaux_eal %}
+            <li><strong>{{ niveau.niveau }}</strong> - {{ niveau.description }}</li>
+        {% empty %}
+            <li>Aucun niveau EAL trouvé.</li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    <a href="{% url 'liste_audits' %}">
+        <button>Retour à la liste</button>
+    </a>
+{% endblock %}

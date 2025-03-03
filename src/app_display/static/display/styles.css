@@ -1,0 +1,121 @@
+
+/* Styles généraux */
+
+html, body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Barre de navigation */
+
+nav {
+    background: #71c7b1;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #A8E6D3; /* Un vert d'eau clair */
+}
+
+/* Contenu principal */
+main {
+    flex: 1;
+    width: 60%;
+    margin: auto;
+    padding: 20px 40px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+
+footer {
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    background: #71c7b1;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Boutons */
+button {
+    background-color: #A8E6D3;
+    border-radius: 30px;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #97dac6;
+    color: black;
+}
+
+/* Listes */
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+ul li {
+    background: #c9e9e46e;
+    padding: 10px;
+    margin: 6px 0;
+    border-radius: 5px;
+}
+
+/* Formulaire d'upload */
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="file"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

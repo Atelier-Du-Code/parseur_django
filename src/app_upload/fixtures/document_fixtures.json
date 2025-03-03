@@ -1,0 +1,18 @@
+[
+    {
+        "model": "app_upload.document",
+        "fields": {
+            "nom_fichier": "rapport1.pdf",
+            "date_upload": "2024-03-01T12:00:00Z",
+            "fichier_pdf": "uploads/rapport1.pdf"
+        }
+    },
+    {
+        "model": "app_upload.document",
+        "fields": {
+            "nom_fichier": "rapport2.pdf",
+            "date_upload": "2024-03-02T15:30:00Z",
+            "fichier_pdf": "uploads/rapport2.pdf"
+        }
+    }
+]

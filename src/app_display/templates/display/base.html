@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mon Application{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'display/styles.css' %}">
+
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'liste_audits' %}">Tous les audits</a></li>
+                <li><a href="{% url 'upload_document' %}">Uploader un document</a></li>
+                <li><a href="{% url 'doc_parses' %}">Tous les documents</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2025 - Mon Application Django</p>
+    </footer>
+
+</body>
+</html>

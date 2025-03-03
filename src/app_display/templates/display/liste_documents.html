@@ -1,0 +1,28 @@
+{% extends "display/base.html" %}
+
+{% block title %}Liste des Documents{% endblock %}
+
+{% block content %}
+    <h1>Liste des Documents uploadés</h1>
+
+    <ul class="document-list">
+        {% for document in documents %}
+            <li class="document-item">
+                <strong>{{ document.nom_fichier }}</strong>  
+                <span class="date">- Uploadé le {{ document.date_upload|date:"d/m/Y H:i" }}</span>
+                <button onclick="ouvrirFichier('{{ document.fichier_pdf.url }}')">Voir</button>
+            </li>
+        {% empty %}
+            <li class="no-docs">Aucun document disponible.</li>
+        {% endfor %}
+    </ul>
+
+    <script>
+        function ouvrirFichier(url) {
+            let win = window.open(url, "_blank");
+            if (!win) {
+                alert("Veuillez autoriser les pop-ups pour ce site !");
+            }
+        }
+    </script>
+{% endblock %}

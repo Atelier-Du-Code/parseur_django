@@ -1,0 +1,20 @@
+{% extends "display/base.html" %}
+
+{% block title %}Liste des Audits{% endblock %}
+
+{% block content %}
+    <h1>Liste des Audits</h1>
+
+    <ul>
+        {% for audit in audits %}
+            <li>
+                <strong>Audit {{ audit.nom_produit }} du {{ audit.document.date_upload|date:"d/m/Y" }}</strong>
+                <a href="{% url 'afficher_document' audit.id %}">
+                    <button>Voir les détails</button>
+                </a>
+            </li>
+        {% empty %}
+            <li>Aucun audit disponible.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
