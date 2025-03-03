@@ -17,7 +17,7 @@ def upload_document(request):
                 nom_produit=parsed_data["nom_produit"],
                 editeur=parsed_data["editeur"],
                 version_produit=parsed_data["version"],
-                description=parsed_data["description"]
+               
             )
 
             for niveau_data in parsed_data["niveaux_eal"]:

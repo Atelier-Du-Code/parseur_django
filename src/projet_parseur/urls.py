@@ -21,10 +21,9 @@ from django.conf.urls.static import static
 
 
 
-from app_display.views import index
+from app_display.views import index, liste_audits
 
-urlpatterns = [
-    path('', index, name="index"),
+urlpatterns = [   
     path('admin/', admin.site.urls),
     path('upload/', include("app_upload.urls")),
     path('display/', include("app_display.urls")),
