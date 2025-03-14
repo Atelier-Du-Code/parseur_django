@@ -1,0 +1,29 @@
+{% extends "display/base.html" %}
+
+{% block title %}Création audit{% endblock %}
+
+{% block content %}
+
+    <h1>Création d'un nouvel audit</h1>   
+
+    <h2>Créer un audit</h2>
+   
+    <form method="POST">
+        {% csrf_token %}
+        {{form_eval.as_table}}
+       
+        {{ form_niveaux.management_form }}
+          
+        {% for form in form_niveaux %}
+            <div class="form-row">
+                {{ form.as_table }}  
+            </div>
+        {% endfor %}
+
+        <input type="submit" value="Créer">
+    </form>
+ 
+    <a href="{% url 'liste_audits' %}">
+        <button>Retour à la liste</button>
+    </a>
+{% endblock %}

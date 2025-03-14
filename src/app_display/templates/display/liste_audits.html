@@ -3,18 +3,55 @@
 {% block title %}Liste des Audits{% endblock %}
 
 {% block content %}
-    <h1>Liste des Audits</h1>
 
-    <ul>
-        {% for audit in audits %}
-            <li>
-                <strong>Audit {{ audit.nom_produit }} du {{ audit.document.date_upload|date:"d/m/Y" }}</strong>
-                <a href="{% url 'afficher_document' audit.id %}">
-                    <button>Voir les détails</button>
-                </a>
-            </li>
-        {% empty %}
-            <li>Aucun audit disponible.</li>
-        {% endfor %}
-    </ul>
+    <div>      
+    
+        <div>
+            <h2>Liste des Audits</h2>
+    
+            <ul>
+                {% for audit in audits %}
+                <div class="align_elements">
+                    <li>
+                        <strong>Audit {{ audit.nom_produit }} du
+                            {% if audit.document.date_upload %}
+
+                            {{ audit.document.date_upload|date:"d/m/Y" }}
+
+                        {% elif audit.affichagedocument.date_affichage %}
+
+                            {{ audit.affichagedocument.date_affichage|date:"d/m/Y" }}
+
+                        {% else %}
+                            <em>Date inconnue</em>
+                        {% endif %}
+                            
+                        </strong>
+
+                        <div class="btnGroupe">
+                            <a href="{% url 'afficher_document' audit.id %}">
+                                <button>Voir les détails</button>
+                            </a>
+                            <form method="POST" action="{% url 'delete_audit' audit.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btnDelete">X</button>
+                            </form>    
+                        </div>
+                      
+                    </li>
+                {% empty %}
+                    <li>Aucun audit disponible.</li>
+                {% endfor %}
+                </div>
+            </ul>
+    
+        </div>
+
+        <div>
+
+        </div>
+
+    </div>
+   
+   
 {% endblock %}

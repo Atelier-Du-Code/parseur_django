@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .models import Document
 from app_parseur.utils import parse_pdf
 from app_parseur.models import Evaluation, NiveauEAL
+from app_display.models import AffichageDocument
 
 def upload_document(request):
     if request.method == "POST":
@@ -20,13 +21,17 @@ def upload_document(request):
                
             )
 
+            affichage_data = AffichageDocument.objects.create(
+                evaluation=evaluation
+            )
+
             for niveau_data in parsed_data["niveaux_eal"]:
                 NiveauEAL.objects.create(
                     evaluation=evaluation,
                     niveau=niveau_data["niveau"],
                     description=niveau_data["description"]
                 )
-
+            
             return redirect("doc_parses")
 
     return render(request, "upload/upload_docs.html")
