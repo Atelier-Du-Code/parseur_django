@@ -22,8 +22,11 @@ Si tout est en ordre, vous devriez voir un statut actif.
 cd src
 
 🏗️ Étape 4 : Préparer et lancer le conteneur Docker
+
 docker compose build
+
 docker compose up
+
 📌 Remarque : Le service container_parseur_app peut prendre un peu de temps à démarrer.
 
 🎉 Félicitations ! Votre projet est prêt à être utilisé.
