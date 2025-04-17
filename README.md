@@ -11,8 +11,11 @@ cd parseur_django
 
 🔥 Étape 2 : Démarrer Docker
 Assurez-vous que Docker est bien lancé :
+
 sudo systemctl start docker
+
 sudo systemctl status docker
+
 Si tout est en ordre, vous devriez voir un statut actif.
 
 📂 Étape 3 : Se positionner dans le dossier du projet
